@@ -6,6 +6,7 @@ public class Node {
     private Node right;
     private Node current;
     private Node parent;
+    private boolean isLeft;
 
     public Node() {
         data = 0;
@@ -13,6 +14,15 @@ public class Node {
         right = null;
         current = null;
         parent = null;
+        isLeft = false;
+    }
+
+    public boolean isLeft() {
+        return isLeft;
+    }
+
+    public void setIsLeft(boolean isLeft) {
+        this.isLeft = isLeft;
     }
 
     public int getData() {

@@ -69,7 +69,7 @@ public class Implementation {
 
                     }
 
-                }
+                }                           //  End of else
 
             }                               //  End of while Loop
 
@@ -126,24 +126,29 @@ public class Implementation {
 
         newNode.setCurrent(root);                           //  Node current = root;
         newNode.setParent(null);                            //  Node parent = null;
-        boolean isLeft = false;                             //  To check whether it's in right or left
+
+        //  To check whether it's in right or left
+        newNode.setIsLeft(false);                           //  boolean isLeft = false;
 
         while (newNode.getCurrent().getData() != value) {
+            //  while (current.data != value) {
 
-            newNode.setParent(newNode.getCurrent());
+            newNode.setParent(newNode.getCurrent());        //  parent = current;
 
             if (value < newNode.getCurrent().getData()) {
+                //  if (value < current.data) {
 
-                newNode.setCurrent(newNode.getCurrent().getLeft());
-                isLeft = true;
+                newNode.setCurrent(newNode.getCurrent().getLeft());         //  current = current.left;
+                newNode.setIsLeft(true);                                    //  isLeft = true;
 
             } else {
 
-                newNode.setCurrent(newNode.getCurrent().getRight());
-                isLeft = false;
+                newNode.setCurrent(newNode.getCurrent().getRight());        //  current = current.right;
+                newNode.setIsLeft(false);                                   //  isLeft = false;
 
-            }
+            }       //  End of else
 
+            //  To check whether root is null or not
             if (root == null) {
 
                 return;
@@ -156,18 +161,21 @@ public class Implementation {
          *  CASE 1 : If the node is Leaf Node
          */
         if (newNode.getCurrent().getLeft() == null && newNode.getCurrent().getRight() == null) {
+            //  if (current.left == null && current.right == null) {
 
             if (newNode.getCurrent() == root) {
+                //  if (current == root) {
 
                 root = null;
 
-            } else if (isLeft == true) {
+            } else if (newNode.isLeft() == true) {
+                //  } else if (isLeft == null) {
 
-                newNode.getParent().setLeft(null);
+                newNode.getParent().setLeft(null);              //  parent.left = null;
 
             } else {
 
-                newNode.getParent().setRight(null);
+                newNode.getParent().setRight(null);             //  parent.right = null;
 
             }
 
@@ -175,65 +183,74 @@ public class Implementation {
 
     }
 
-
+/*
+            *
+            * Rest will be Updated
+            *
+ */
 
 
 }
 
 class PrintTree extends Implementation {
 
-    public void dlr(Node root) {
+//
+//    public void dataLeftRight(Node root) {
+//
+//        if (root == null) {
+//            //  Condition to check whether a root is null or not
+//
+//            return;
+//
+//        } else {
+//
+//            System.out.println(root.getData());             //  System.out.println(root.data);
+//
+//            dataLeftRight(root.getLeft());                  //  dataLeftRight(root.left);
+//            dataLeftRight(root.getRight());                 //  dataLeftRight(root.right);
+//
+//        }
+//
+//    }
+//
+
+    public void leftDataRight(Node root) {
 
         if (root == null) {
+            //  Condition to check whether a root is null or not
 
             return;
 
         } else {
 
-            System.out.println(root.getData());
+            leftDataRight(root.getLeft());                  //  dataLeftRight(root.left);
 
-            dlr(root.getLeft());
-            dlr(root.getRight());
+            System.out.println(root.getData());             //  System.out.println(root.data);
 
-        }
-
-    }
-
-
-    public void ldr(Node root) {
-
-        if (root == null) {
-
-            return;
-
-        } else {
-
-            dlr(root.getLeft());
-
-            System.out.println(root.getData());
-
-            dlr(root.getRight());
+            leftDataRight(root.getRight());                 //  dataLeftRight(root.right);
 
         }
 
     }
 
-
-    public void lrd(Node root) {
-
-        if (root == null) {
-
-            return;
-
-        } else {
-
-            dlr(root.getLeft());
-            dlr(root.getRight());
-
-            System.out.println(root.getData());
-
-        }
-
-    }
+//
+//    public void leftRightData(Node root) {
+//
+//        if (root == null) {
+//            //  Condition to check whether a root is null or not
+//
+//        return;
+//
+//        } else {
+//
+//            leftRightData(root.getLeft());                  //  dataLeftRight(root.left);
+//            leftRightData(root.getRight());                 //  dataLeftRight(root.right);
+//
+//            System.out.println(root.getData());             //  System.out.println(root.data);
+//
+//        }
+//
+//    }
+//
 
 }

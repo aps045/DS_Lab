@@ -11,11 +11,11 @@ public class Main {
         printTree.insert(23);
         printTree.insert(45);
         printTree.insert(68);
-        printTree.ldr(implementation.root);
+        printTree.leftDataRight(implementation.root);
         printTree.delete(67);
         System.out.println();
-        printTree.ldr(implementation.root);
+        printTree.leftDataRight(implementation.root);
         printTree.delete(48);
-        printTree.ldr(implementation.root);
+        printTree.leftDataRight(implementation.root);
     }
 }
