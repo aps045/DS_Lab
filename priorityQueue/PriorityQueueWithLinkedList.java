@@ -1,16 +1,18 @@
 package priorityQueue;
 
-public class MyPriorityQueueWithLinkedList {
+public class PriorityQueueWithLinkedList {
     Node node = new Node();
 
     public void enqueue(Student s) {
         Node newNode = new Node(s);
-        if (node.getFront() == null || node.getFront().getData().getCpi() > newNode.getData().getCpi()) {
+        if (node.getFront() == null
+                || node.getFront().getData().getCPI() > newNode.getData().getCPI()) {
             newNode.setNext(node.getFront());
             node.setFront(newNode);
         } else {
             node.setTemp(node.getFront());
-            while(node.getTemp().getNext() != null && node.getTemp().getNext().getData().getCpi() <= newNode.getData().getCpi())
+            while(node.getTemp().getNext() != null
+                    && node.getTemp().getNext().getData().getCPI() <= newNode.getData().getCPI())
                 node.setTemp(node.getTemp().getNext());
             newNode.setNext(node.getTemp().getNext());
             node.getTemp().setNext(newNode);

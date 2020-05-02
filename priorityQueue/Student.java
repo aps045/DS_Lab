@@ -1,22 +1,22 @@
 package priorityQueue;
 
 public class Student {
-    private int roll;
+    private int rollNumber;
     private String name;
-    double cpi;
+    private double CPI;
 
-    public Student(int roll, String name, double cpi) {
-        this.roll = roll;
+    public Student(int rollNumber, String name, double cpi) {
+        this.rollNumber = rollNumber;
         this.name = name;
-        this.cpi = cpi;
+        CPI = cpi;
     }
 
-    public int getRoll() {
-        return roll;
+    public int getRollNumber() {
+        return rollNumber;
     }
 
-    public void setRoll(int roll) {
-        this.roll = roll;
+    public void setRollNumber(int rollNumber) {
+        this.rollNumber = rollNumber;
     }
 
     public String getName() {
@@ -27,18 +27,18 @@ public class Student {
         this.name = name;
     }
 
-    public double getCpi() {
-        return cpi;
+    public double getCPI() {
+        return CPI;
     }
 
-    public void setCpi(double cpi) {
-        this.cpi = cpi;
+    public void setCPI(double cpi) {
+        CPI = cpi;
     }
 
     @Override
     public String toString() {
-        return "\n\nRoll No. : " + getRoll() +
+        return "\n\nRoll No. : " + getRollNumber() +
                 "\nName : " + getName() +
-                "\nCPI : " + getCpi();
+                "\nCPI : " + getCPI();
     }
 }

@@ -1,10 +1,10 @@
 package priorityQueue;
 
 public class Node {
-    Student data;
-    Node front;
-    Node next;
-    Node temp;
+    private Student data;
+    private Node front;
+    private Node next;
+    private Node temp;
 
     public Node getTemp() {
         return temp;
