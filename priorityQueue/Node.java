@@ -1,36 +1,51 @@
 package priorityQueue;
 
 public class Node {
-    int data;
-    int priority;
+    Student data;
+    Node front;
     Node next;
+    Node temp;
 
-    public Node(int data, int priority) {
+    public Node getTemp() {
+        return temp;
+    }
+
+    public void setTemp(Node temp) {
+        this.temp = temp;
+    }
+
+    public Node(Student data) {
         this.data = data;
-        this.priority = priority;
+    }
+
+    public Node() {
+        data = null;
+        front = null;
         next = null;
+        temp = null;
     }
 
-    @Override
-    public String toString() {
-        return "data=" + data +
-                "priority=" + priority +
-                "next=" + next;
-    }
-
-    public int getData() {
+    public Student getData() {
         return data;
     }
 
-    public void setData(int data) {
+    public void setData(Student data) {
         this.data = data;
     }
 
-    public int getPriority() {
-        return priority;
+    public Node getFront() {
+        return front;
     }
 
-    public void setPriority(int priority) {
-        this.priority = priority;
+    public void setFront(Node front) {
+        this.front = front;
+    }
+
+    public Node getNext() {
+        return next;
+    }
+
+    public void setNext(Node next) {
+        this.next = next;
     }
 }

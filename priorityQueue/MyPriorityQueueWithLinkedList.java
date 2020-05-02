@@ -1,46 +1,41 @@
 package priorityQueue;
 
 public class MyPriorityQueueWithLinkedList {
-    Node front;
+    Node node = new Node();
 
-    public MyPriorityQueueWithLinkedList() {
-        front = null;
-    }
-
-    public void enqueue(Node newNode) {
-        if (front == null || front.priority > newNode.priority) {
-            newNode.next = front;
-            front = newNode;
+    public void enqueue(Student s) {
+        Node newNode = new Node(s);
+        if (node.getFront() == null || node.getFront().getData().getCpi() > newNode.getData().getCpi()) {
+            newNode.setNext(node.getFront());
+            node.setFront(newNode);
         } else {
-            Node temp = front;
-            while(temp.next != null && temp.next.priority <= newNode.priority) {
-                temp = temp.next;
-            }
-            newNode.next = temp.next;
-            temp.next = newNode;
+            node.setTemp(node.getFront());
+            while(node.getTemp().getNext() != null && node.getTemp().getNext().getData().getCpi() <= newNode.getData().getCpi())
+                node.setTemp(node.getTemp().getNext());
+            newNode.setNext(node.getTemp().getNext());
+            node.getTemp().setNext(newNode);
         }
     }
 
     public void dequeue() {
-        if(front == null) {
+        if(node.getFront() == null)
             System.out.println("Queue is Empty");
-        } else {
-            if (front.next == null) {
-                front = null;
-            } else {
-                front = front.next;
-            }
+        else {
+            if (node.getFront().getNext() == null)
+                node.setFront(null);
+            else
+                node.setFront(node.getFront().getNext());
         }
     }
 
     public void printQueue() {
-        if (front == null) {
+        if (node.getFront() == null) {
             System.out.println("Queue is Empty");
         } else {
-            Node temp = front;
-            while (temp != null) {
-                System.out.println(temp);
-                temp = temp.next;
+            node.setTemp(node.getFront());
+            while (node.getTemp() != null) {
+                System.out.println(node.getTemp().getData().toString());
+                node.setTemp(node.getTemp().getNext());
             }
         }
     }
